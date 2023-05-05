@@ -4,8 +4,12 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 import logo from '../../assets/Logo_header.svg'
 import { NewTransactionModal } from '../NewTransactionModal'
+import { useWindowSize } from '../../hooks/useWindowSize'
+import { Plus } from 'phosphor-react'
 
 export function Header() {
+  const { width } = useWindowSize()
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -13,7 +17,9 @@ export function Header() {
 
         <Dialog.Root>
           <Dialog.Trigger asChild>
-            <NewTransactionButton>Nova transação</NewTransactionButton>
+            <NewTransactionButton>
+              {width > 576 ? 'Nova transação' : <Plus size={24} />}
+            </NewTransactionButton>
           </Dialog.Trigger>
 
           <NewTransactionModal />
