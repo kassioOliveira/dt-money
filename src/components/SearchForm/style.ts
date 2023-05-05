@@ -31,6 +31,12 @@ export const SearchFormContainer = styled.form`
     border-radius: 6px;
     cursor: pointer;
 
+    svg {
+      font-size: 20px;
+      text-indent: initial;
+      text-transform: initial;
+    }
+
     &:disabled {
       opacity: 0.7;
       cursor: not-allowed;
@@ -41,6 +47,37 @@ export const SearchFormContainer = styled.form`
       border: 1px solid ${(props) => props.theme['green-500']};
       color: ${(props) => props.theme.white};
       transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+    }
+  }
+
+  @media (max-width: 576px) {
+    margin: 0 auto;
+    max-width: 90%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20%, 70%));
+    grid-template-rows: auto, auto;
+    justify-content: space-between;
+
+    h3 {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    span {
+      grid-column: 2;
+      grid-row: 1;
+      color: ${(props) => props.theme['gray-500']};
+    }
+
+    input {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    button {
+      grid-column: 2;
+      grid-row: 2;
     }
   }
 `
